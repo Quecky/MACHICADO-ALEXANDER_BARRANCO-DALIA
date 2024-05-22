@@ -67,4 +67,5 @@ public class Odontologo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+}
 
