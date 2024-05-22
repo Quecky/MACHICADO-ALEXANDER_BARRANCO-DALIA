@@ -114,3 +114,37 @@ Invalid value "2" for parameter "columnIndex" [90008-224]
 [2024-05-21 16:41:33][ INFO ][EmpleadoDaoH2:144] Empleado listado Empleado{id=5, apellido='Cosme', nombre='Manganito', dni='443', fechaNacimiento=2024-12-13}
 [2024-05-21 16:41:33][ INFO ][EmpleadoDaoH2:43] Empleado persistido Empleado{id=6, apellido='Aldo', nombre='Fefo', dni='43434', fechaNacimiento=2024-04-22}
 [2024-05-21 16:41:33][ INFO ][EmpleadoDaoH2:101] odontologo encontrado Empleado{id=1, apellido='Paco', nombre='Manganita', dni='44443', fechaNacimiento=2020-12-13}
+[2024-05-21 18:49:54][ ERROR][OdontologoServiceTest:32] Error de Sintaxis en sentencia SQL "\000d\000aCREATE TABLE ODONTOLOGOS(\000d\000aID INT AUTO_INCREMENT PRIMARY KEY,\000d\000aNOMBRE VARCHAR(50) NOT NULL,\000d\000aAPELLIDO VARCHAR(50) NOT NULL,\000d\000aMATRICULA VARCHAR(50) NOT NULL,\000d\000a[*]"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000aCREATE TABLE ODONTOLOGOS(\000d\000aID INT AUTO_INCREMENT PRIMARY KEY,\000d\000aNOMBRE VARCHAR(50) NOT NULL,\000d\000aAPELLIDO VARCHAR(50) NOT NULL,\000d\000aMATRICULA VARCHAR(50) NOT NULL,\000d\000a[*]"; expected "identifier"; SQL statement:
+
+CREATE TABLE ODONTOLOGOS(
+ID INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE VARCHAR(50) NOT NULL,
+APELLIDO VARCHAR(50) NOT NULL,
+MATRICULA VARCHAR(50) NOT NULL,
+ [42001-224]
+[2024-05-21 18:51:48][ ERROR][OdontologoServiceTest:32] Error de Sintaxis en sentencia SQL "\000d\000aCREATE TABLE ODONTOLOGOS(\000d\000aID INT AUTO_INCREMENT PRIMARY KEY,\000d\000aNOMBRE VARCHAR(50) NOT NULL,\000d\000aAPELLIDO VARCHAR(50) NOT NULL,\000d\000aMATRICULA VARCHAR(50) NOT NULL,\000d\000a[*]"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000aCREATE TABLE ODONTOLOGOS(\000d\000aID INT AUTO_INCREMENT PRIMARY KEY,\000d\000aNOMBRE VARCHAR(50) NOT NULL,\000d\000aAPELLIDO VARCHAR(50) NOT NULL,\000d\000aMATRICULA VARCHAR(50) NOT NULL,\000d\000a[*]"; expected "identifier"; SQL statement:
+
+CREATE TABLE ODONTOLOGOS(
+ID INT AUTO_INCREMENT PRIMARY KEY,
+NOMBRE VARCHAR(50) NOT NULL,
+APELLIDO VARCHAR(50) NOT NULL,
+MATRICULA VARCHAR(50) NOT NULL,
+ [42001-224]
+[2024-05-21 18:52:18][ INFO ][OdontologoDaoH2:38] Odontologo persistido Odontologo{id=1, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 18:52:18][ INFO ][OdontologoDaoH2:96] Odontologo listado Odontologo{id=1, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=1, nombre='Cosme', apellido='Menganito', numeroMatricula='456464'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=2, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=3, nombre='Emma', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=4, nombre='Abner', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=1, nombre='Cosme', apellido='Menganito', numeroMatricula='456464'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=2, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=3, nombre='Emma', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:16:26][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=4, nombre='Abner', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=1, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=2, nombre='Emma', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:19] Odontologo agregado Odontologo{id=3, nombre='Abner', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=1, nombre='Alex', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=2, nombre='Emma', apellido='Manganito', numeroMatricula='443'}
+[2024-05-21 19:17:07][ INFO ][OdontologoEnMemoria:28] Odontologo Odontologo{id=3, nombre='Abner', apellido='Manganito', numeroMatricula='443'}

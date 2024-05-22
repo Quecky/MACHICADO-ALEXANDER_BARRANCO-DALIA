@@ -19,7 +19,7 @@ public class Odontologo {
     public Odontologo() {
     }
 
-    public Odontologo(Integer id, String apellido, String nombre, String numeroMatricula) {
+    public Odontologo(Integer id, String nombre, String apellido, String numeroMatricula) {
         this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -27,7 +27,7 @@ public class Odontologo {
 
     }
 
-    public Odontologo(String apellido, String nombre, String numeroMatricula) {
+    public Odontologo(String nombre, String apellido, String numeroMatricula) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.numeroMatricula = numeroMatricula;
