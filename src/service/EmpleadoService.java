@@ -1,28 +1,27 @@
 package service;
 
-import model.Empleado;
+import model.Odontologo;
 import persistencia.dao.IDao;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class EmpleadoService {
 
-    private IDao<Empleado> empleadoIDAO;
+    private IDao<Odontologo> empleadoIDAO;
 
-    public EmpleadoService(IDao<Empleado> empleadoIDAO) {
+    public EmpleadoService(IDao<Odontologo> empleadoIDAO) {
         this.empleadoIDAO = empleadoIDAO;
     }
 
-    public Empleado registrarEmpleado(Empleado empleado) {
-        return empleadoIDAO.crear(empleado);
+    public Odontologo registrarEmpleado(Odontologo odontologo) {
+        return empleadoIDAO.crear(odontologo);
     }
 
-    public Empleado buscarPorId(Integer id) {
+    public Odontologo buscarPorId(Integer id) {
         return empleadoIDAO.buscarPorId(id);
     }
 
-    public List<Empleado> buscarTodos() {
+    public List<Odontologo> buscarTodos() {
         return empleadoIDAO.buscarTodos();
     }
 
@@ -31,7 +30,7 @@ public class EmpleadoService {
         empleadoIDAO.borrarPorId(id);
     }
 
-    public Empleado actualizar(Empleado entidad) {
+    public Odontologo actualizar(Odontologo entidad) {
     return empleadoIDAO.actualizar(entidad);
     }
 

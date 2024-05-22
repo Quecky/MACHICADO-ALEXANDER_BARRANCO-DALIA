@@ -1,7 +1,7 @@
 package persistencia.impl;
 
 import db.H2Connection;
-import model.Empleado;
+import model.Odontologo;
 import org.apache.log4j.Logger;
 import persistencia.dao.IDao;
 
@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpleadoDaoH2 implements IDao<Empleado> {
+public class EmpleadoDaoH2 implements IDao<Odontologo> {
     private static String SQL_INSERT = "INSERT INTO EMPLEADOS VALUES(DEFAULT,?,?,?,?)";
     private static String SQL_SELECT_ID="SELECT * FROM EMPLEADOS WHERE ID=?";
     private static String SQL_SELECT_ALL="SELECT * FROM EMPLEADOS";
@@ -20,8 +20,8 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
     private static String SQL_UPDATE="UPDATE EMPLEADOS SET APELLIDO=?,NOMBRE=?,DNI=?,FECHA_NACIMIENTO=? WHERE ID=?";
     public static Logger LOGGER = Logger.getLogger(EmpleadoDaoH2.class);
     @Override
-    public Empleado crear(Empleado entidad) {
-        Empleado empleadoAretornar=null;
+    public Odontologo crear(Odontologo entidad) {
+        Odontologo odontologoAretornar =null;
         Connection connection = null;
         try{
             connection = H2Connection.getConnection();
@@ -38,9 +38,9 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
             while (resultSet.next())
             {
                 Integer id = resultSet.getInt(1);
-                empleadoAretornar = new Empleado(id,entidad.getApellido(),entidad.getNombre(),entidad.getDni(),entidad.getFechaNacimiento());
+                odontologoAretornar = new Odontologo(id,entidad.getApellido(),entidad.getNombre(),entidad.getDni(),entidad.getFechaNacimiento(), numeroMatricula);
             }
-            LOGGER.info("Empleado persistido "+empleadoAretornar);
+            LOGGER.info("Empleado persistido "+ odontologoAretornar);
             //el commit es para hacer modificaciones en la BD
             //no se necesita para listar
             connection.commit();
@@ -73,14 +73,14 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
         }
 
 
-        return empleadoAretornar;
+        return odontologoAretornar;
     }
 
     @Override
-    public Empleado buscarPorId(Integer id) {
+    public Odontologo buscarPorId(Integer id) {
 
         Connection connection = null;
-        Empleado empleadoEncontrado=null;
+        Odontologo odontologoEncontrado =null;
         try
         {
             connection= H2Connection.getConnection();
@@ -96,9 +96,9 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
                 LocalDate fecha=resultSet.getDate(5).toLocalDate();
 
 
-                empleadoEncontrado = new Empleado(IdDevuelto,apellido,nombre,dni,fecha);
+                odontologoEncontrado = new Odontologo(IdDevuelto,apellido,nombre,dni,fecha, numeroMatricula);
 
-                LOGGER.info("empleado encontrado "+empleadoEncontrado);
+                LOGGER.info("empleado encontrado "+ odontologoEncontrado);
             }
 
         }catch(Exception e)
@@ -116,14 +116,14 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
             }
         }
 
-        return empleadoEncontrado;
+        return odontologoEncontrado;
     }
 
     @Override
-    public List<Empleado> buscarTodos() {
+    public List<Odontologo> buscarTodos() {
 
 
-        List<Empleado> empleados=new ArrayList<>();
+        List<Odontologo> odontologos =new ArrayList<>();
 
         Connection connection = null;
         try
@@ -140,9 +140,9 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
                 LocalDate fecha=resultSet.getDate(5).toLocalDate();
 
 
-                Empleado empleado = new Empleado(IdDevuelto,apellido,nombre,dni,fecha);
-                LOGGER.info("Empleado listado "+empleado);
-                empleados.add(empleado);
+                Odontologo odontologo = new Odontologo(IdDevuelto,apellido,nombre,dni,fecha, numeroMatricula);
+                LOGGER.info("Empleado listado "+ odontologo);
+                odontologos.add(odontologo);
 
             }
 
@@ -162,13 +162,13 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
         }
 
 
-        return empleados;
+        return odontologos;
     }
 
     @Override
     public void borrarPorId(Integer id) {
         Connection connection = null;
-        Empleado empleado = buscarPorId(id);
+        Odontologo odontologo = buscarPorId(id);
         try {
 
             connection = H2Connection.getConnection();
@@ -179,7 +179,7 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
 
             preparedStatement.executeUpdate();
 
-            LOGGER.info("Empleado borrado "+empleado);
+            LOGGER.info("Empleado borrado "+ odontologo);
             connection.commit();
 
             connection.setAutoCommit(true);
@@ -214,9 +214,9 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
     }
 
     @Override
-    public Empleado actualizar(Empleado entidad) {
+    public Odontologo actualizar(Odontologo entidad) {
         Connection connection = null;
-        Empleado empleadoActualizado=null;
+        Odontologo odontologoActualizado =null;
         try {
 
             connection = H2Connection.getConnection();
@@ -238,10 +238,10 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
 
                 Integer IdDevuelto = resultSet.getInt(1);
 
-                empleadoActualizado= new Empleado(IdDevuelto,entidad.getApellido(), entidad.getNombre(), entidad.getDni(), entidad.getFechaNacimiento());
+                odontologoActualizado = new Odontologo(IdDevuelto,entidad.getApellido(), entidad.getNombre(), entidad.getDni(), entidad.getFechaNacimiento(), numeroMatricula);
 
         }
-            LOGGER.info("Empleado actualizado "+empleadoActualizado);
+            LOGGER.info("Empleado actualizado "+ odontologoActualizado);
             connection.commit();
 
             connection.setAutoCommit(true);
@@ -272,6 +272,6 @@ public class EmpleadoDaoH2 implements IDao<Empleado> {
                 throw new RuntimeException(e);
             }
         }
-        return empleadoActualizado;
+        return odontologoActualizado;
     }
 }
